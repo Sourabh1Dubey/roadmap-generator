@@ -1,0 +1,92 @@
+/* Existing styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f9d423, #ff4e50);
+    color: #333; /* Changed text color to dark */
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.heading {
+    color: #333; /* Dark gray */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #b0b027a3; /* Changed header text color to white */
+}
+
+textarea {
+    width: calc(100% - 20px); /* Adjusting width to accommodate padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: background-color 0.3s ease;
+    resize: none;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+textarea:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4e50; /* Changed button color */
+    color: #fff; /* Changed button text color to white */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f9d423; /* Changed button color on hover */
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure the overlay is on top of other elements */
+}
+
+.loading-text {
+    font-size: 24px;
+    color: #333;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

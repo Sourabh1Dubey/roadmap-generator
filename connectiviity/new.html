@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .chat-header p {
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .chat-box {
+            max-height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .chat-input {
+            display: flex;
+        }
+
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .loading {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .loading::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            border-top: 2px solid transparent;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>ChatGPT</h1>
+            <p>Welcome to ChatGPT</p>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+            <span class="loading"></span>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            var chatBox = document.getElementById("chat-box");
+            var loadingIcon = document.querySelector(".loading");
+            var userMessage = '<div style="text-align: right; margin-bottom: 5px;"><strong>You:</strong> ' + userInput + '</div>';
+            var botMessage = '<div style="text-align: left; margin-bottom: 5px;"><strong>Bot:</strong> ' + 'Loading...' + '</div>';
+            chatBox.innerHTML += userMessage + botMessage;
+            loadingIcon.style.display = "inline-block";
+            document.getElementById("user-input").value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(function() {
+                loadingIcon.style.display = "none";
+                var botResponse = getBotResponse(userInput);
+                var botMessage = '<div style="text-align: left; margin-bottom: 5px;"><strong>Bot:</strong> ' + botResponse + '</div>';
+                chatBox.innerHTML += botMessage;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1500); // Simulating a delay of 1.5 seconds
+        }
+
+        function getBotResponse(userInput) {
+            // You can implement your chatbot logic here to generate a response based on user input
+            // For this example, let's just echo the user input
+            return "Hello! I am ChatGPT. How can I assist you?";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f9d423, #ff4e50); /* Gradient background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+        h1 {
+            color: #721c24; /* Dark red color for the title */
+            margin-bottom: 20px;
+        }
+        p {
+            color: #721c24; /* Dark red color for the text */
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>An Error Occurred</h1>
+        <p>Due to the completion of the number of requests, we are unable to process your request at the moment. Please try again later.</p>
+        <p>{{ error_message|default("An unspecified error occurred.") }}</p>
+    </div>
+</body>
+</html>
